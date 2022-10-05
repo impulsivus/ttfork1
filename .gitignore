@@ -11,3 +11,7 @@
 src/twitch-session.json
 .idea/codestream.xml
 settings.json.bak
+build_app.cmd
+failsafe_restart_run.bat
+TTVDropBot-Patched.exe
+TTVDropBot.exe

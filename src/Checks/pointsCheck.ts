@@ -1,6 +1,7 @@
 import {userdata} from "../index" ;
 import winston from "winston";
 import chalk from "chalk";
+import * as fs from 'fs';
 const TwitchGQL = require("@zaarrg/twitch-gql-ttvdropbot").Init();
 
 let points = 0;
@@ -35,9 +36,20 @@ async function checkisClaimeable(request:any, channelId: string) {
                 claimID: ClaimId
             }
         }
-        //const claimrequest = await TwitchGQL._SendQuery("ClaimCommunityPoints", opts, '46aaeebe02c99afdf4fc97c7c0cba964124bf6b0af229395f1f6d1feed05b3d0', 'OAuth ' + userdata.auth_token, true, {}, true);
-        //points = claimrequest[0].data.claimCommunityPoints.currentPoints
-        winston.info(chalk.gray('Skipping Claimed Channel Points... (Hard Coded Skip)'), {event: "claim"})
+        try {
+            fs.readFile("settings.json", async function (err, data) {
+                if (err) throw err;
+                if(data.includes('"CollectPoints": true')){
+                    const claimrequest = await TwitchGQL._SendQuery("ClaimCommunityPoints", opts, '46aaeebe02c99afdf4fc97c7c0cba964124bf6b0af229395f1f6d1feed05b3d0', 'OAuth ' + userdata.auth_token, true, {}, true);
+                    points = claimrequest[0].data.claimCommunityPoints.currentPoints
+                    winston.info(chalk.gray('Claimed Channel Points...'), {event: "claim"})
+                } else {
+                    winston.info(chalk.gray('Skipping extra channel points, disabled in settings.'), {event: "claim"})
+                }
+            });
+        } catch (e) {
+            winston.info(chalk.gray('Skipping Claimed Channel Points... (There was an issue with claiming points)'), {event: "claim"})
+        }
     }
 }
 

@@ -1,9 +1,23 @@
 <!-- markdownlint-disable MD032 MD033-->
 
-## Only change was disabling channel points
+
+## In this fork
+- [x] Fixed errors with channel points
+- [x] Added skip extra channel point collection (that little channel point box that pops up some times)
+     - [ ] Add Argument for Skipping Channel Points via CLI
+- [x] Fix an error where twitch errors out when claiming, added try catch and move on
+
+
+* You can find the latest patched file [here](https://github.com/cyberofficial/TTVDropBot/releases)
+
+* If you encounter issues with my builds, make issues here and not the original repo.
+     * MY repo is meant to be temporal until the primary project is fixed.
+
+
 
 -----------------------------------------
 
+### Original Read Me
 
 <h1 align="center">
   <a name="logo" href="https://github.com/Zaarrg/TTVDropBot"><img src="https://i.imgur.com/2WtgNe4.png" alt="Bear Stone Smart Home" width="200"></a>

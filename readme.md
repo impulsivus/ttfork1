@@ -10,10 +10,16 @@
 
 * You can find the latest patched file [here](https://github.com/cyberofficial/TTVDropBot/releases)
 
-* If you encounter issues with my builds, make issues here and not the original repo.
      * MY repo is meant to be temporal until the primary project is fixed.
 
-
+* Work Around for Unable to log in
+     * Create a file called **twitch-session.json** under the same directory of the application
+     * Paste this inside the file `[{"name":"auth-token","value":"replaceme"}]`
+     * Goto twitch drops dashboard, [Here](https://www.twitch.tv/drops/inventory)
+     * Get a browser addon that can look at cookies, {Addons: [Opera](https://addons.opera.com/en/extensions/details/cookie-editor-2/), [Chrome](https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/)}
+     * Copy the `auth-token` and replace `replaceme` with your token
+![](https://i.imgur.com/1kj32dP.png)
+     * Save and close the editor you used then relaunch the application.
 
 -----------------------------------------
 
